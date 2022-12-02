@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap');
+
+.text-uppercase {
+    background-color: #455A64;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    font-family: 'Kanit', sans-serif;
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: #fff;
+}

@@ -1,0 +1,5 @@
+Week 1:
+    - Project init
+    - Drawing package install
+    - Bootstrap install and configure
+    - Replace karma with jest and configure

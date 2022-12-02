@@ -1,0 +1,5 @@
+Autentikáció?
+Amikor egy képet / videót szerkeszt valaki, akkor azt adatbázisból tölti be és menti el? Lesz hozzá valami endpoint? Vagy saját gépről lehessen feltölteni és lementeni?
+https://www.veed.io/tools/annotate-video/draw-on-video
+
+Ha marad időm Frontendre bele lehetne rakni a képekhez a leírást.

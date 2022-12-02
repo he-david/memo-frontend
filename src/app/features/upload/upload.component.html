@@ -1,0 +1,29 @@
+<section class="mt-5">
+  <div *ngFor="let progressInfo of progressInfos">
+    <span class="text-white">{{ progressInfo.fileName }}</span>
+    <mat-toolbar class="progress-bar">
+      <mat-progress-bar color="primary" [value]="progressInfo.value"></mat-progress-bar>
+      <span class="progress">{{ progressInfo.value }}%</span>
+    </mat-toolbar>
+  </div>
+
+  <mat-form-field>
+    <div>
+      <mat-toolbar>
+        <input matInput [value]="selectedFileNames.length ? selectedFileNames : 'Select Images'" />
+        <button mat-flat-button color="primary" [disabled]="!selectedFiles" (click)="uploadFiles()">
+          Upload
+        </button>
+      </mat-toolbar>
+      <input type="file" id="fileInput" name="fileInput" accept="image/*" multiple (change)="selectFiles($event)" />
+    </div>
+  </mat-form-field>
+  <div>
+    <img *ngFor='let preview of previews' [src]="preview" class="preview">
+  </div>
+  <div *ngIf="message.length" class="message my-3 p-0">
+    <ul class="mt-3" *ngFor="let msg of message">
+      <li>{{ msg }}</li>
+    </ul>
+  </div>
+</section>

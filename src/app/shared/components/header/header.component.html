@@ -1,0 +1,30 @@
+<header class="shadow-lg rounded">
+  <nav class="navbar navbar-dark">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="d-flex justify-content-around">
+      <div class="py-2">
+        <a routerLink="/">
+          <fa-icon [icon]="homeIcon" class="icon h1"></fa-icon>
+        </a>
+      </div>
+      <div class="py-2">
+        <a routerLink="/images">
+          <fa-icon [icon]="imagesIcon" class="icon h1"></fa-icon>
+        </a>
+      </div>
+      <div class="py-2">
+        <a routerLink="/upload">
+          <fa-icon [icon]="uploadIcon" class="icon h1"></fa-icon>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
