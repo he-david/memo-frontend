@@ -6,15 +6,14 @@ import { Observable } from 'rxjs';
 import { Image, ImageResponse, ImagesResponse } from './image.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ImageService {
-  private baseUrl = 'http://localhost:8080/memo';
+  private baseUrl =
+    'http://ec2-3-121-239-98.eu-central-1.compute.amazonaws.com:8080/memo';
+  // private baseUrl = 'http://localhost:8080/memo';
 
-  constructor(
-    private http: HttpClient,
-    private sanitizer: DomSanitizer
-  ) { }
+  constructor(private http: HttpClient, private sanitizer: DomSanitizer) {}
 
   getImage(id: number): Observable<ImageResponse> {
     return this.http.get<ImageResponse>(`${this.baseUrl}/image/${id}`);
@@ -25,19 +24,15 @@ export class ImageService {
   }
 
   postImage(formData: any) {
-    const headers = new HttpHeaders({'enctype': 'multipart/form-data'});
+    const headers = new HttpHeaders({ enctype: 'multipart/form-data' });
 
     const req = new HttpRequest('POST', `${this.baseUrl}/image`, formData, {
       headers: headers,
       reportProgress: true,
-      responseType: 'json'
+      responseType: 'json',
     });
 
     return this.http.request(req);
-
-    // const headers = new HttpHeaders({'enctype': 'multipart/form-data'});
-    
-    // return this.http.post(`${this.baseUrl}/image`, formData, { headers: headers, reportProgress: true, responseType: 'json' });
   }
 
   deleteImage(id: number) {
@@ -48,7 +43,9 @@ export class ImageService {
     return {
       id: image.id,
       name: image.fileName.replace(/\.\w{1,5}$/, ''),
-      source: this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/jpg;base64,${image.content}`)
-    }
+      source: this.sanitizer.bypassSecurityTrustResourceUrl(
+        `data:image/jpg;base64,${image.content}`
+      ),
+    };
   }
 }

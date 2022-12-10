@@ -1,4 +1,8 @@
 <section class="mt-5">
+    <div class="d-flex justify-content-around">
+        <fa-icon [icon]="downloadIcon" class="icon h1 me-5" (click)="download()"></fa-icon>
+        <fa-icon [icon]="deleteIcon" class="icon h1" (click)="delete()"></fa-icon>
+    </div>
     <image-drawing [width]="width" [height]="height" [src]="source" outputMimeType="'image/jpeg'" (save)="save($event)"
         (cancel)="cancel()">
     </image-drawing>

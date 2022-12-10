@@ -2,7 +2,6 @@ import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { FileUploadService } from 'src/app/services/file-upload/file-upload.service';
 import { ImageService } from 'src/app/services/image/image.service';
 
 @Component({

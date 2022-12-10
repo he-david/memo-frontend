@@ -1,6 +1,8 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, NgZone } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { saveAs } from 'file-saver';
+import { faTrash, faDownload } from '@fortawesome/free-solid-svg-icons';
 
 import { ImageResponse } from 'src/app/services/image/image.interface';
 import { ImageService } from 'src/app/services/image/image.service';
@@ -14,6 +16,9 @@ export class DrawComponent implements OnInit {
   source?: string;
   imageId: number = 0;
   fileName: string = "";
+
+  deleteIcon = faTrash;
+  downloadIcon = faDownload;
 
   width = 616;
   height = 742;
@@ -68,5 +73,32 @@ export class DrawComponent implements OnInit {
     this.ngZone.run(() => {
       this.router.navigate(['/images']);
     });
+  }
+
+  delete() {
+    if (this.imageId === 0) {
+      this.ngZone.run(() => {
+        this.router.navigate(['/images']);
+      });
+      return;
+    }
+    const observer = {
+      complete: () => {
+        this.ngZone.run(() => {
+          this.router.navigate(['/images']);
+        });
+      }
+    }
+    this.imageService.deleteImage(this.imageId).subscribe(observer);
+  }
+
+  download() {
+    if (this.imageId === 0) {
+      this.ngZone.run(() => {
+        this.router.navigate(['/images']);
+      });
+      return;
+    }
+    saveAs(this.source!, this.fileName);
   }
 }

@@ -22,7 +22,6 @@ import { MatGridListModule } from '@angular/material/grid-list';
 
 import { UploadComponent } from './features/upload/upload.component';
 import { HomeComponent } from './features/home/home.component';
-import { DrawComponent } from './features/draw/draw.component';
 import { ImagesComponent } from './features/images/images.component';
 
 const MATERIAL = [
@@ -41,7 +40,6 @@ const MATERIAL = [
     AppComponent,
     UploadComponent,
     HomeComponent,
-    DrawComponent,
     ImagesComponent
   ],
   imports: [
